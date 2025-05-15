@@ -26,7 +26,10 @@ export async function POST(req: NextRequest) {
       console.log(stderr);
     }
     var label = stdout.trim().split("\n").pop();
-    return NextResponse.json({ label });
+    return NextResponse.json(
+      { label, imageUrl: "/image.jpg" },
+      { status: 200 }
+    );
   } catch (error) {
     console.log(error);
     return NextResponse.json(
